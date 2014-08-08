@@ -3,9 +3,19 @@
 #include <vector>
 #include <queue>
 #include <tr1/unordered_set>
+#include <tr1/unordered_map>
+#include <list>
 
 using namespace std;
 using namespace tr1;
+
+
+void printv(vector<string>& v){
+    for (int j = 0; j < v.size(); j++) {
+        cout << v[j] << " " ;
+    }
+    cout << endl;
+}
 
 void printvv(vector<vector<string> >& vv) {
     for (int i = 0; i < vv.size(); i++) {
@@ -15,6 +25,14 @@ void printvv(vector<vector<string> >& vv) {
         cout << endl;
     }
     cout << endl << endl;
+}
+
+void print_map(unordered_map<string, vector<string> >& map) {
+    unordered_map<string, vector<string> >::iterator it = map.begin();
+    for(; it != map.end(); ++it){
+        cout << it->first << " => ";
+        printv(it->second);
+    }
 }
 
 int is_disttance_ok(const string& left, const string& right) {
@@ -30,131 +48,89 @@ int is_disttance_ok(const string& left, const string& right) {
     return 1;
 }
 
-/*
+
+void dfs(const string& start, const string& end, vector<vector<string> >& result, vector<string> path, 
+        unordered_map<string, vector<string> >& father) {
+    if (end == start) {
+        path.push_back(end);
+        reverse(path.begin(), path.end());
+        result.push_back(path);
+        return;
+    }
+
+    unordered_map<string, vector<string> >::iterator it = father.find(end);
+    if (it == father.end()) {
+        return;
+    }
+
+    path.push_back(end);
+    vector<string>& vs = it->second;
+    for(int i = 0; i < vs.size(); ++i) {
+        dfs(start, vs[i], result, path, father);
+    }
+    return;
+}
+
 vector<vector<string> > findLadders(string start, string end, unordered_set<string> &dict) {
     vector<vector<string> > result;
-    vector<string> sub;
-    sub.push_back(start);
-    if (is_disttance_ok(start, end)) {
-        sub.push_back(end);
-        result.push_back(sub);
+    if (start == end) {
         return result;
     }
 
-    queue<string> q;
-    q.push(start);
-    queue<string> nq;
+    unordered_set<string> curr_level;
 
-    queue< vector<string> > sub_path_queue;
-    sub_path_queue.push(sub);
+    unordered_set<string> next_level;
 
-    queue< unordered_set<string> > dq;
-    dq.push(dict);
+    unordered_map<string, vector<string> > father;
 
-    int level = 0;
+    unordered_set<string> used;
+
     int found = 0;
 
-    while(!q.empty()) {
-        ++level;
-        while(!q.empty()){
-            string& curr = q.front();
-            vector<string>& sub_path = sub_path_queue.front();
-            unordered_set<string>& sub_dict = dq.front();
+    curr_level.insert(start);
+    while(!curr_level.empty()) {
+        for(unordered_set<string>::iterator it = curr_level.begin(); it != curr_level.end(); ++it){
+            used.insert(*it);
+        }
+        for(unordered_set<string>::iterator it = curr_level.begin(); it != curr_level.end(); ++it){
+            string curr = *it;
             for (int i = 0; i < curr.size(); i++) {
                 for(char ch = 'a'; ch <= 'z'; ++ch) {
                     if (curr[i] == ch) {
                         continue;
                     }
                     string next = curr;
-                    next.replace(i, 1, 1, ch);
+                    next[i] = ch;
 
                     if (next == end) {
-                        vector<string> new_path = sub_path;
-                        new_path.push_back(end);
-                        result.push_back(new_path);
+                        next_level.insert(next);
+                        father[next].push_back(curr);
                         found = 1;
-                        continue;
+                        break;
                     }
 
-                    if (sub_dict.find(next) != sub_dict.end()) {
-                        nq.push(next);
-
-                        vector<string> new_path = sub_path;
-                        new_path.push_back(next);
-                        sub_path_queue.push(new_path);
-
-
-                        unordered_set<string> new_dict = sub_dict;
-                        new_dict.erase(next);
-                        dq.push(new_dict);
+                    if (dict.find(next) != dict.end() && used.find(next) == used.end()) {
+                        next_level.insert(next);
+                        father[next].push_back(curr);
                     }
                 }
             }
-
-            q.pop();
-            sub_path_queue.pop();
-            dq.pop();
         }
 
         if (found) {
             break;
         }
-
-        swap(q, nq);
-        
+        curr_level.clear();
+        swap(curr_level, next_level);
     }
+
+    print_map(father);
+
+    vector<string> path;
+    dfs(start, end, result, path, father);
 
     return result;
 
-}
-*/
-
-void dfs(const string& start, const string& end, unordered_set<string> dict,vector<string> sub_path, 
-        vector< vector<string> >& result, int& min) {
-    if (sub_path.size() > min) {
-        return;
-    }
-    for(int i = 0; i < start.size(); ++i){
-        for (char ch = 'a'; ch <= 'z'; ch++) {
-            if (start[i] == ch) {
-                continue;
-            }
-
-            string next = start;
-            next.replace(i, 1, 1, ch);
-            if (next == end) {
-                sub_path.push_back(next);
-                int n = sub_path.size();
-                if (n < min) {
-                    min = n;
-                    result.clear();
-                    result.push_back(sub_path);
-                }
-                else if (n == min) {
-                    result.push_back(sub_path);
-                }
-
-                continue;
-            }
-
-            if (dict.find(next) != dict.end()){
-                sub_path.push_back(next);
-                dict.erase(next);
-                dfs(next, end, dict, sub_path, result, min);
-                sub_path.pop_back();
-                dict.insert(next);
-            }
-
-        }
-    }
-}
-
-vector<vector<string> > findLadders(string start, string end, unordered_set<string> &dict) {
-    vector<vector<string> > result;
-    vector<string> sub_path;
-    int min = dict.size() + 3;
-    dfs(start, end, dict, sub_path, result, min);
-    return result;
 }
 
 int main(int argc, const char *argv[])
@@ -180,6 +156,6 @@ int main(int argc, const char *argv[])
     unordered_set<string> dc(c, c+17);
     vector<vector<string> > vvc = findLadders("kite", "ashy", dc);
     printvv(vvc);
-    
+
     return 0;  
 }
