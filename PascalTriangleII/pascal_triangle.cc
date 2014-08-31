@@ -3,28 +3,21 @@
 
 using namespace std;
 
-void printvv(vector<vector<int> >& vv) {
-    for (int i = 0; i < vv.size(); i++) {
-        for (int j = 0; j < vv[i].size(); j++) {
-            cout << vv[i][j] << " " ; 
-        }
-        cout << endl;
-    }   
-    cout << endl ;
-}
-
-vector<vector<int> > generate(int numRows) {
-    vector<vector<int> > result;
-    for (int i = 0; i < numRows; i++) {
-        vector<int> v(i+1, 1);
-        result.push_back(v);
+void printv(vector<int>& v){ 
+    for (int j = 0; j < v.size(); j++) {
+        cout << v[j] << " " ; 
     }
+    cout << endl << endl;;
+}   
 
-    printvv(result);
+vector<int>  getRow(int rowIndex) {
+    vector<int>  result(rowIndex + 1, 1);
 
-    for (int i = 2; i < numRows; i++) {
-        for (int j = 1; j < i; ++j) {
-            result[i][j] = result[i-1][j-1] + result[i-1][j];
+    printv(result);
+
+    for (int i = 2; i <= rowIndex; i++) {
+        for (int j = i-1; j >= 1; --j) {
+            result[j] = result[j-1] + result[j];
         }
     }
     
@@ -35,9 +28,11 @@ vector<vector<int> > generate(int numRows) {
 
 int main(int argc, const char *argv[])
 {
-    vector<vector<int> > vv = generate(5);
-    printvv(vv);
+    vector<int>  v = getRow(3);
+    printv(v);
     
+    v = getRow(2);
+    printv(v);
     return 0;
 }
 
