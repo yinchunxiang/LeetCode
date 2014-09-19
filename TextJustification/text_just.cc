@@ -1,62 +1,103 @@
 #include <iostream>
 #include <vector>
+#include <string>
+
 
 using namespace std;
 
+void printv(vector<string>& v){ 
+    for (int j = 0; j < v.size(); j++) {
+        cout << "[" <<  v[j] << "] " << endl; 
+    }
+    cout << endl;
+}   
+
+void printvi(vector<int>& v) {
+    for (int i = 0; i < v.size(); ++i) {
+        cout << v[i] << endl;
+    }
+    cout << endl;
+}
+
+
 vector<string> fullJustify(vector<string> &words, int L) {
     vector<string> result;
-    vector<int> word_size_vec;
-    int sum = 0;
-    for (int i = 0; i < words; ++i) {
-        sum += words[i].size();
-        word_size_vec.push_back(sum);
-    }
 
     int start = 0;
-    int used = 0;
-    for (int i = 0; i < word_size_vec; ++i) {
-        if ( L < word_size_vec[i] - used ) {
-            if ( i - start == 1) {
-                string temp = words[i - 1] + string(L - word_size_vec[i - 1], ' ');
-                result.push_back();
-                start = i;
-                used = word_size_vec[i - 1];
+    int curr_size = 0;
+    int N = words.size() ;
+    for (int i = 0; i < N; ++i) {
+        curr_size += words[i].size();
+        cout << "i: " << i << "  curr_size: " << curr_size << " start: " << start << endl;
+        int min_pad_count = i - start;
+        cout << "min_pad_count: " << min_pad_count << endl;
+        if (L >= curr_size + min_pad_count && (N - 1 == i || L < curr_size + words[i + 1].size() + min_pad_count + 1)) {
+            int delimiter = i - start;
+            string temp;
+            int pad_count = L - curr_size;
+            int remainder = delimiter == 0 ? 0 : pad_count % delimiter;
+            if (i == N - 1) {
+                remainder = 0;
             }
-            else {
-                int pad_count = word_size_vec[i - 1] - L;
-                int remainder = pad_count % i;
-                int avg = pad_count / i;
-                string temp;
-                for (int j = start; j < i ; ++j){
-                    if (j != start) {
-                        if (remainder -- > 0) {
-                            temp += string(avg + 1, ' ');
-                        }
-                        else {
-                            temp += string(avg, ' ');
-                        }
-                    }
-                    temp += words[j];
+            int avg = delimiter == 0 ? pad_count :pad_count / delimiter;
+            if (i == N - 1) {
+                avg = 1;
+            }
+            cout << "remainder: " << remainder << " avg: " << avg << endl;
+            for (int j = start; j <= i ; ++j){
+                temp += words[j];
+                if (j == i) { // if it is the last and not the first
+                    continue;
                 }
+
+                if (remainder -- > 0) {
+                    temp += string(avg + 1, ' ');
+                }
+                else {
+                    temp += string(avg, ' ');
+                }
+
             }
+            
+            if (temp.size() < L) {
+                temp.append(L - temp.size(), ' ');
+            }
+
+            result.push_back(temp);
+            start = i + 1;
+            curr_size = 0;
         }
     }
     return result;
 }
 
-void printv(vector<string>& v){ 
-    for (int j = 0; j < v.size(); j++) {
-        cout << v[j] << " " ; 
-    }
-    cout << endl << endl;;
-}   
 
 
 int main(int argc, const char *argv[])
 {
-    string arr[] = {"This", "is", "an", "example", "of", "text", "justification."};
-    vector<int> v(arr, arr + 7);
-    vector<string> result = fullJustify(v) << endl;      
+    string arr[] = {"Here","is","an","example","of","text","justification."};
+    vector<string> v(arr, arr + 7);
+    vector<string> result = fullJustify(v, 14);
+    printv(result);
+
+    string b[] = {"What","must","be","shall","be."};
+    vector<string> vb(b, b + 5);
+    result = fullJustify(vb, 12);
+    printv(result);
+
+    string c[] = {""};
+    vector<string> vc(c, c + 1);
+    result = fullJustify(vc, 2);
+    printv(result);
+
+    string d[] = {""};
+    vector<string> vd(d, d + 1);
+    result = fullJustify(vd, 0);
+    printv(result);
+
+    string e[] = {"My","momma","always","said,","\"Life","was","like","a","box","of","chocolates.","You","never","know","what","you're","gonna","get."};
+    vector<string> ve(e, e + 18);
+    result = fullJustify(ve, 20);
     printv(result);
     return 0;
 }
