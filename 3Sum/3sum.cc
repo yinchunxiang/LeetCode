@@ -1,6 +1,8 @@
 #include <vector> 
 #include <iostream> 
 #include <iterator> 
+#include <algorithm> 
+
 
 using namespace std;
 
@@ -17,56 +19,34 @@ void printvv(vector<vector<int> >& vv) {
 vector<vector<int> > threeSum(vector<int> &num) {
     vector<vector<int> > result;
     int n = num.size();
-    if (n < 3) {
-        return result;
-    }
+    if (n < 3) { return result; }
     sort(num.begin(), num.end());
+    vector<int> temp(3, 0);
     for (int i = 0; i < n - 2; ++i) {
-        int a = num[i];
-        int b = num[i + 1];
-        int c = num[n - 1];
+        int a = i; int b = i + 1; int c = n - 1;
+        int sum = num[a] + num[b] + num[c];
         while (b < c) {
-            if (a + b + c < 0) {
+            if (sum < 0) {
                 ++b;
             }
-            else if (a + b + c > 0) {
+            else if (sum > 0) {
                 --c;
             }
             else {
-                vector<int> temp;
-                temp.push_back(a);
-                temp.push_back(b);
-                temp.push_back(c);
+                temp[0] = num[a]; temp[1] = num[b]; temp[2] = num[c];
+                if (result.empty() || temp != result.back()) {
                 result.push_back(temp);
-                ++b;
-                --c;
+                }
+                ++b; --c;
             }
-        }
-    }
-    sort(result.begin(), result.end());
-    printvv(result);
-    int rn = result.size();
-    if (rn <= 1) { return result;}
-
-    vector<vector<int> >::iterator prev = result.begin();
-    vector<vector<int> >::iterator it = ++prev;
-    while (it != result.end()) {
-        if (*it != *prev) {
-            ++it;
-        }
-        else {
-            result.erase(it++);
-            ++prev;
         }
     }
     return result;
 }
 
-
-
 int main(int argc, const char *argv[]) {
-    int a[] = {-1,-1,-1,1};
-    vector<int> v(a, a + 4);
+    int a[] = {3,0,-2,-1,1,2};
+    vector<int> v(a, a + 6);
     vector<vector<int> > vv = threeSum(v);
     printvv(vv);
     return 0;

@@ -4,8 +4,17 @@
 
 using namespace std;
 
-string longestCommonPrefix(vector<string> &strs) {
-    return lcp(strs, 0, strs.size() - 1);
+string get_common_prefix(const string& left, const string& right) {
+    int ln = left.size();
+    int rn = right.size();
+
+    for (int i = 0; i < ln && i < rn; ++i) {
+        if (left[i] != right[i]) {
+            return left.substr(0, i);
+        }
+    }
+
+    return left.substr(0, i);
 }
 
 string lcp(vector<string>& strs, int start, int end) {
@@ -26,18 +35,9 @@ string lcp(vector<string>& strs, int start, int end) {
         right = lcp(strs, mid + 1, end);
     }
     return get_common_prefix(left, right);
-    
 }
 
-string get_common_prefix(const string& left, const string& right) {
-    int ln = left.size();
-    int rn = right.size();
-
-    for (int i = 0; i < ln && i < rn; ++i) {
-        if (left[i] != right[i]) {
-            return left.substr(0, i);
-        }
-    }
-
-    return left.substr(0, i);
+string longestCommonPrefix(vector<string> &strs) {
+    if (strs.empty()) return "";
+    return lcp(strs, 0, strs.size() - 1);
 }
