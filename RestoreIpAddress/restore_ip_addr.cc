@@ -1,10 +1,8 @@
 #include <iostream> 
 #include <vector>
 #include <string>
-#include <tr1/unordered_set>
 
 using namespace std;
-using namespace tr1;
 
 void printv(vector<string>& v) {
     for(int i = 0; i < v.size(); ++i){
@@ -38,7 +36,7 @@ void restore_ip_addr(const string& s, vector<string>& result, int level, int sta
             break;
         }
     }
-
+    return;
 }
 
 vector<string> restoreIpAddresses(string s) {
@@ -49,13 +47,22 @@ vector<string> restoreIpAddresses(string s) {
 
 int main(int argc, const char *argv[])
 {
+    {
     string s = "25525511135";
     vector<string> result = restoreIpAddresses(s);
     printv(result);
+    }
 
-    s = "0000";
-    result = restoreIpAddresses(s);
+    {
+    string s = "0000";
+    vector<string> result = restoreIpAddresses(s);
     printv(result);
+    }
+    {
+    string s = "1111";
+    vector<string> result = restoreIpAddresses(s);
+    printv(result);
+    }
 
 
     return 0;

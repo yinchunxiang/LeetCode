@@ -29,6 +29,33 @@ int longestValidParentheses(string s) {
     return max_size;
 }
 
+int lvp(string s) {
+    int n = s.size();
+    if (n <= 1) return 0;
+    int maxlen = 0;
+    int left = 0;
+    int right = 0;
+    int start = 0;
+    for (int i = 0; i < n; ++i) {
+        if (s[i] == '(') {
+            ++ left;
+        }
+        else {
+            ++ right;
+            if (right <= left) {
+                int len = min(i - start + 1, right * 2);
+                if (len > maxlen) maxlen = len;
+            }
+            else if (right > left) {
+                left = 0;
+                right = 0;
+                start = i + 1;
+            }
+        }
+    }
+    return maxlen;
+}
+
 void printv(vector<int>& v) {
     for (int i = 0; i < v.size(); ++i) {
         cout << v[i] << " ";
@@ -97,9 +124,25 @@ int long2(string s) {
 
 int main(int argc, const char *argv[])
 {
+    {
     string s= "()(()";
     cout << longestValidParentheses(s) << endl;
-    cout << long2(s) << endl;
+    //cout << long2(s) << endl;
+    cout << lvp(s) << endl;
+    }
+
+    {
+    string s= "()()";
+    cout << longestValidParentheses(s) << endl;
+    //cout << long2(s) << endl;
+    cout << lvp(s) << endl;
+    }
+    {
+    string s= "(((()";
+    cout << longestValidParentheses(s) << endl;
+    //cout << long2(s) << endl;
+    cout << lvp(s) << endl;
+    }
     return 0;
 }
 
