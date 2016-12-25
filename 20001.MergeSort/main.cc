@@ -13,24 +13,31 @@
  * @brief 
  * 
  **/ 
- 
+
+#include <vector>
+#include <algorithm>
+#include <iostream>
+
+using namespace std;
+
 
 void MergeSort(vector<int>& v, vector<int>::iterator left, vector<int>::iterator right) {
-    if (v.end() == left || v.end() == right) {
+    if (right == left || v.end() == left) {
         return;
     }
     auto mid = left +  distance(left, right)/2;
     MergeSort(v, left, mid);
     MergeSort(v, mid + 1, right);
     vector<int> temp;
-    for(auto it1 = left, it2 = mid + 1; it1 != mid + 1, it2 != v.end()) {
+    auto it1 = left, it2 = mid + 1;
+    while(it1 != std::next(mid) && it2 != v.end()) {
         if (*it1 < *it2) {
-            temp.push_back(*it1);
+            temp.push_back(*it1++);
         } else {
-            temp.push_back(*it2);
+            temp.push_back(*it2++);
         }
     }
-    while (it1 != mid + 1) {
+    while (it1 != std::next(mid)) {
         temp.push_back(*it1++);
     }
     while (it2 != v.end()) {
@@ -42,9 +49,24 @@ void MergeSort(vector<int>& v, vector<int>::iterator left, vector<int>::iterator
         ++left;
     }
 
-    return
+    return;
 }
 
+void printv(vector<int>& v) {
+    for (int i = 0; i < v.size(); ++i) {
+        cout << v[i] << " ";
+    }
+    cout << endl;
+}
+
+
+int main(int argc, const char *argv[])
+{
+    vector<int> v = {12, 11, 13, 5, 6, 7};
+    MergeSort(v, v.begin(), v.end());
+    printv(v);
+    return 0;
+}
 
 
 
