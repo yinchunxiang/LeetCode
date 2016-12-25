@@ -37,6 +37,11 @@ void MergeSort(vector<int>& v, vector<int>::iterator left, vector<int>::iterator
         temp.push_back(*it2++);
     }
 
+    for (auto it = temp.begin(); it!= temp.end(); ++it) {
+        *left = *it;
+        ++left;
+    }
+
     return
 }
 

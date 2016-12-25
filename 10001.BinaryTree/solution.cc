@@ -117,7 +117,7 @@ class Tree {
             if (nullptr == root_) return;
             stack<const Node*> s;
             s.push(root_);
-            Node* p = nullptr;
+            const Node* p = nullptr;
             while (!s.empty()) {
                 p = s.top();
                 s.pop();
@@ -130,11 +130,39 @@ class Tree {
                 }
             }
         }
+        
+        void preorder_morris() {
+            if (!root_) return;
+            auto p = root_;
+            while (p) {
+                if (!p->left) {
+                    println(p->val);
+                    p = p->right;
+                } else {
+                    auto temp = p->left;
+                    while (p != temp->right && temp->right) {
+                        temp = temp->right;
+                    }
+                    if (!temp->right) {
+                        ///第一次从左子的最右节点返回，直接访问节点
+                        println(p->val);
+                        temp->right = p;
+                        p = p->left;
+                    } else {
+                        ///第二次从左子的最右节点返回，已经都完成访问
+                        ///拆开廉洁，同时转向访问右子
+                        temp->right = nullptr;
+                        p = p->right;
+                    }
+                    
+                }
+            }
+        }
 
         void inorder_nonrecursive() {
             if (nullptr == root_) return;
             stack<const Node*> s;
-            Node* p = root_;
+            const Node* p = root_;
             while (!s.empty() || nullptr != p) {
                 if (nullptr != p) {
                     s.push(p);
@@ -169,6 +197,36 @@ class Tree {
                 }
             }
         }
+
+        ///时间复杂度O(N), 空间复杂度O(1)
+        ///时间换空间
+        void inorder_morris() {
+            if (nullptr == root_) return;
+            auto p = root_;
+            while (p) {
+                if (nullptr == p->left) {
+                    cout << p->val << endl;
+                    p = p->right;
+                } else {
+                    auto temp = p->left;
+                    while (nullptr != temp->right && p != temp->right) {
+                        temp = temp->right;
+                    }
+                    if (nullptr == temp->right) {
+                        ///第一次访问节点p，p的左子还没有访问
+                        ///需要先访问p的左子
+                        temp->right = p;
+                        p = p->left;
+                    } else {
+                        ///p的左子已经访问完成，访问p本身，再访问p的右子
+                        ///要将原来建立的连接断开
+                        cout << p->val << endl;
+                        temp->right = nullptr;
+                        p = p->right;
+                    }
+                }
+            }
+        }
         
         /// 时间复杂度O(N), 空间复杂度O(N)
         void postorder_nonrecursive() {
@@ -186,15 +244,15 @@ class Tree {
                 ///当没有可入栈的时候，开始弹栈
                 while (!s.empty()) {
                     cur = s.top();
-                    s.pop();
                     ///表示从右节点返回,或者右节点为空,
                     ///则开始访问当前节点,并继续弹栈
                     if (cur->right == pre) {
                         println(cur->val);
                         pre = cur; ///保存刚刚访问过的节点
+                        s.pop();
                     } else { ///从左节点返回,表示不能处理，要继续进行入栈
                         ///当前节点不能访问，需要二次进栈
-                        s.push(cur);
+                        //s.push(cur);
                         ///处理右节点，继续进行入栈
                         cur = cur->right;
                         break;
@@ -202,6 +260,61 @@ class Tree {
                 }
             } while (!s.empty());
         }
+
+        void reverse(Node* from, Node* to) {
+            Node* pre = nullptr;
+            Node* cur = from;
+            Node* temp = nullptr;
+            while (to != pre) {
+                temp = cur;
+                cur = cur->right;
+                temp->right = pre;
+                pre = temp;
+            }
+        }
+
+        void print_reverse(Node* from, Node* to) {
+            cout << "from " << from->val << " to " << to->val << endl;
+            if (from == to) {
+                cout << from->val << endl;
+                return;
+            }
+            reverse(from, to);
+            for (auto p = to; p != nullptr; p = p->right) {
+                cout << p->val << endl;
+            }
+            reverse(to, from);
+        }
+
+        void postorder_morris() {
+            if (!root_) return;
+            Node dummy(-1);
+            dummy.left = root_;
+            auto p = &dummy;
+            while (p) {
+                if (!p->left) {
+                    p = p->right;
+                } else {
+                    auto temp = p->left;
+                    while (temp->right && p != temp->right) {
+                        temp = temp->right;
+                    }
+                    if (!temp->right) {
+                        //第一次从左子的最右节点返回，继续处理左子
+                        temp->right = p;
+                        p = p->left;
+                    } else {
+                        //第二次从左子的最右节点返回，反向输出节点
+                        //断开之前建立的连接，并转向处理右子
+                        print_reverse(p->left, temp);
+                        temp->right = nullptr;
+                        p = p->right;
+                    }
+                }
+            }
+        }
+
+        
 
         void release(Node* &root) {
             if (nullptr == root) return;
@@ -218,8 +331,18 @@ class Tree {
 int main(int argc, const char* argv[]) {
     vector<int> v = {1, 2, 3, 4, INT_MAX, INT_MAX, 5};
     Tree tree(v);
+    println("print_by_level ======>");
     tree.print_by_level();
+    println("preorder_morris ======>");
+    tree.preorder_morris();
+    println("inorder_nonrecursive ======>");
     tree.inorder_nonrecursive();
+    println("inorder_morris ======>");
+    tree.inorder_morris();
+    println("postorder_nonrecursive ====>");
+    tree.postorder_nonrecursive();
+    println("postorder_morris ====>");
+    tree.postorder_morris();
     return 0;
 }
 
