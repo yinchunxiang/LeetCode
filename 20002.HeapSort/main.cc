@@ -17,11 +17,12 @@
 #include <vector>
 
 void printv(const vector<int>& v) {
-    return
+    return;
 }
 
 int main() {
-
+    vector<int> v = {12, 11, 13, 5, 6, 7};
+    printv(v);
 }
 
 
