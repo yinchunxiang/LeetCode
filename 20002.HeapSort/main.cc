@@ -34,17 +34,16 @@ void rerange(vector<int>&v, int index, int maxn) {
         auto lc = index * 2 + 1;
         auto rc = index * 2 + 2;
         auto largest = index;
-        if (lc < maxn && v[lc] > v[index]) {
-            swap(v[lc], v[index]);
+        if (lc < maxn && v[lc] > v[largest]) {
             largest = lc;
         }
-        if (rc < maxn && v[rc] > v[index]) {
-            swap(v[rc], v[index]);
+        if (rc < maxn && v[rc] > v[largest]) {
             largest = rc;
         }
         if (index == largest) {
             break;
         } else {
+            swap(v[index], v[largest]);
             index = largest;
         }
     }
@@ -55,12 +54,18 @@ void extract(vector<int> &v) {
     if (n <=0) return;
 
     for (auto i = n - 1; i > 0; --i) {
+        cout << "---->start ";
+        printv(v);
         swap(v[0], v[i]);
         rerange(v, 0, i);
+        cout << "---->end ";
+        printv(v);
     }
 }
 
 void HeapSort(vector<int> &v) {
+    cout << "before rerange => ";
+    printv(v);
     auto n = int(v.size());
     if (n <= 0) return;
     int index = (n - 1)/2 -1;
@@ -68,13 +73,16 @@ void HeapSort(vector<int> &v) {
 
         rerange(v, index, n);
     }
+    cout << "after rerange => ";
+    printv(v);
     extract(v);
+    cout << "after extrace => ";
+    printv(v);
 }
 
 int main() {
-    vector<int> v = {12, 11, 13, 5, 6, 7};
+    vector<int> v = {12, 11, 13, 5, 6, 7, 1, 20, 9};
     HeapSort(v);
-    printv(v);
 }
 
 
