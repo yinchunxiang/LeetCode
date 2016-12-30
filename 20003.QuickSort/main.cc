@@ -1,4 +1,4 @@
-/****************************************************************************
+/****************************************************************************G
  * 
  * Copyright (C) 2016 @com, Inc. All rights reserved.
  * 
@@ -21,7 +21,14 @@
 using namespace std;
  
 int main() {
-    return 0
+    int cases = 0;
+    int size = 0;
+    cin >> cases;
+    cin >> size;
+    cout << "cases => " << cases << endl;
+    cout << "size => " << size << endl;
+
+    return 0;
 }
 
 
