@@ -72,11 +72,49 @@ int MinCut(const string &s) {
     }
     return c[0][size - 1];
 }
- 
+
+int mincut(const string &s) {
+    int size = (int)s.size();
+    vector<vector<bool>> p(size, vector<bool>(size, false));
+    for (int i = 0; i < size; ++i) {
+        p[i][i] = true;
+    }
+
+    for (int step = 1; step < size; ++step) {
+        for (int i = 0; i + step < size; ++i) {
+            /// 先判断是不是回文
+            int j = i + step;
+            if (1 == step) {
+                p[i][j] = (s[i] == s[j]);
+            } else {
+                p[i][j] = (s[i] == s[j] && p[i + 1][j - 1]);
+            }
+        }
+    }
+
+    vector<int> c(size, 0);
+    /// 计算切回文的最小切数
+    for (int j = 0; j < size; ++j) {
+        if (p[0][j]) {
+            c[j] = 0;
+            continue;
+        }
+        c[j] = j;
+        for (int i = 0; i < j; ++i) {
+            if (p[i + 1][j] && 1 + c[i] < c[j]) {
+                c[j] = 1 + c[i];
+            }
+        }
+
+    }
+    return c[size - 1];
+}
+
 int main(int argc, char *argv[]) {
     string  s = "ababbbabbababa";
     cout << "recursive => " << min_cut(s, 0, s.size() - 1) << endl;;
     cout << "dp => " << MinCut(s) << endl;;
+    cout << "optimized dp => " << mincut(s) << endl;;
     return 0;
 }
 
