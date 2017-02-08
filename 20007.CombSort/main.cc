@@ -27,6 +27,11 @@ int next_gap(int gap) {
     return gap;
 }
 
+/*
+ * 是BubbleSort的改进版
+ * BubbleSort是邻近的互相交换
+ * CombSort提高了交换的距离，直到距离为1且没有交换为止
+ */
 void CombSort(std::vector<int>& v) {
     int n = v.size();
     int gap = n;
