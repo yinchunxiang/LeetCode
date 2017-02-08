@@ -126,7 +126,7 @@ int main(int argc, char *argv[]) {
     cout << "before => ";
     l.print();
 
-    quick_sort(l.head_->next, l.tail());
+    quick_sort(l.head(), l.tail());
     //List::Node* pre_mid = partition(l.head_, l.head_->next, l.tail());
     //cout << "pre_mid => " << pre_mid->data << endl;
     
