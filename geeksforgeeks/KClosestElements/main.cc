@@ -29,8 +29,6 @@ vector<int> kClosetElements(vector<int> &v, int x, int k) {
     vector<int> ret(k, 0);
     int count = 0;
     auto rit = std::next(it);
-    //vector<int>::reverse_iterator lit = it;
-    //auto lit = std::make_reverse_iterator(it);
     std::reverse_iterator<vector<int>::iterator> lit(it);
     cout << "lit => " << *lit << endl;
     for (;count < k && lit != v.rend() && rit != v.end(); ++count) {
