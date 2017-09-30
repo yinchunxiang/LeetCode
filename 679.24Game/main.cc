@@ -9,7 +9,7 @@
 /** 
  * @file main.cc
  * @author yinchunxiang(@com)
- * @date 2017/09/20 00:18:53
+ * @date 2017/09/23 17:53:27
  * @brief 
  * 
  **/ 
@@ -64,7 +64,6 @@ public:
         }
         return judgePoint24(v);
     }
-
 };
 
 
