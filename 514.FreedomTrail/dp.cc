@@ -29,32 +29,22 @@ public:
         }
         int m = ring.size();
         int n = key.size();
-        vector<vector<int>> dp(n, vector<int>(m, 0));
-        for (int k = 0; k < m; ++k) {
-            if (ring[k] != key[0]) {
-                dp[0][k] = 0;
-            }
-            dp[0][k] = min(k, m - k) + 1;
-        }
+        vector<vector<int>> dp(n + 1, vector<int>(m, 0));
 
         int res = m * n;
 
-        for (int i = 1;i < n; ++i) {
-            for (int j = 0; j < m; ++j) {
-                if (key[i] != ring[j]) {
-                    continue;
-                }
+        for (int i = n - 1; i >= 0; --i) {
+            for (int j = m - 1; j >= 0; --j) {
+                dp[i][j] = res;
                 for (int k = 0; k < m; ++k) {
+                    if (ring[k] != key[i]) continue;
                     int d1 = abs(k - j);
                     int d2 = m - d1;
-                    dp[i][j] = min(dp[i][j], dp[i - 1][k] + min(d1, d2) + 1);
-                    if (i == n - 1) {
-                        res = min(res, dp[i][j]);
-                    }
+                    dp[i][j] = min(dp[i][j], dp[i + 1][k] + min(d1, d2));
                 }
             }
         }
-        
+        return dp[0][0] + n;
     }
 };
 
@@ -63,7 +53,8 @@ int main(int argc, char *argv[])
     string ring = "godding";
     string key = "gd";
     Solution s; 
-    s.findRotateSteps(ring, key);
+    int steps = s.findRotateSteps(ring, key);
+    cout << steps << endl;
     return 0;
 }
 
