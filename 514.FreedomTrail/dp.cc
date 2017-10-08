@@ -29,32 +29,28 @@ public:
         }
         int m = ring.size();
         int n = key.size();
-        vector<vector<int>> dp(n, vector<int>(m, 0));
-        for (int k = 0; k < m; ++k) {
-            if (ring[k] != key[0]) {
-                dp[0][k] = 0;
-            }
-            dp[0][k] = min(k, m - k) + 1;
-        }
-
         int res = m * n;
+        vector<vector<int>> dp(n + 1, vector<int>(m, 0));
 
-        for (int i = 1;i < n; ++i) {
+        for (int i = 1;i < n + 1; ++i) {
             for (int j = 0; j < m; ++j) {
-                if (key[i] != ring[j]) {
-                    continue;
-                }
+                dp[i][j] = m*n;
                 for (int k = 0; k < m; ++k) {
+                    if (key[i - 1] != ring[k]) {
+                        continue;
+                    }
                     int d1 = abs(k - j);
                     int d2 = m - d1;
                     dp[i][j] = min(dp[i][j], dp[i - 1][k] + min(d1, d2) + 1);
-                    if (i == n - 1) {
+                    if (i == n) {
                         res = min(res, dp[i][j]);
                     }
                 }
             }
         }
-        
+
+        cout << "result: " << res << endl;
+
     }
 };
 
