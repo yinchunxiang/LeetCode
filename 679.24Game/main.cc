@@ -14,67 +14,55 @@
  * 
  **/ 
  
+
 class Solution {
 public:
-    bool 
-
-
-    bool judgePoint24(vector<int>& nums) {
-        if (nums.size() == 1) {
-            return abs(nums[i] - 24) <= 0.001;
+    bool judgePoint24(vector<double>& v) {
+        int size = nums.size();
+        if (0 == size) return false;
+        if (1 == size) {
+            return abs(24 - nums[0]) < 0.001;
         }
-        for (int i = 0; i < nums.size(); ++i) {
-            for (int j = i + 1; j < nums.size(); ++j) {
-                vector<int> temp;
-                for (int k = 0; k < nums.size(); ++k) {
-                    if (k != i && k != j) {
-                        temp.push_back(nums[k]);
+        for (int i = 0; i < size; ++i) {
+            for (int j = 0; j < size; ++j) {
+                if (i == j)  continue;
+                vector<double> v;
+                for (int m = 0; m < size; ++m) {
+                    if (m != i && m != j) {
+                        v.push_back(nums[m]);
                     }
                 }
-                for (int m = 0; m < 6; ++m) {
-                    vector<int> result(temp);
-                    //+
-                    if (0 == m) {
-                        result.push_back(nums[i] + nums[j]);
-                        if (judgePoint24(result)) {
-                            return true;
-                        }
+                for (int k = 0; k < 4; ++k) {
+                    if (k < 2 && i < j) continue;
+                    if (0 == k) {
+                        v.push_back(nums[i] + nums[j]);
                     }
-                    if (1 == m) {
-                        result.push_back(nums[i] * nums[j]);
-                        if (judgePoint24(result)) {
-                            return true;
-                        }
+                    if (1 == k) {
+                        v.push_back(num[i] * nums[j]);
                     }
-                    if (2 == m) {
-                        result.push_back(nums[i] - nums[j]);
-                        if (judgePoint24(result)) {
-                            return true;
-                        }
+                    if (2 == k) {
+                        v.push_back(num[i] - nums[j]);
                     }
-                    if (3 == m) {
-                        result.push_back(num[j] - nums[i]);
-                        if (judgePoint24(result)) {
-                            return true;
-                        }
+                    if (3 == k) {
+                        if (0 == nums[j])  continue;
+                        v.push_back(nums[i] / num[j]);
                     }
-                    if (4 == m) {
-                        result.push_back(num[i] / nums[j]);
-                        if (judgePoint24(result)) {
-                            return true;
-                        }
+                    if (judgePoint24(v)) {
+                        return true;
                     }
-                    if (5 == m) {
-                        result.push_back(num[j] / nums[i]);
-                        if (judgePoint24(result)) {
-                            return true;
-                        }
-                    }
+                    v.pop_back();
                 }
+
             }
         }
         return false;
-        
+    }
+    bool judgePoint24(vector<int>& nums) {
+        vector<double> v;
+        for (auto num : nums) {
+            v.push_back(double(num));
+        }
+        return judgePoint24(v);
     }
 };
 

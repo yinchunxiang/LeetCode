@@ -17,39 +17,36 @@
 class Solution {
     public:
         bool isValidSplit(vector<int> &nums, int m, int sum) {
-            int i = 0, n = nums.length;
             // count the minimum number of split
-            int count = 0;
+            int count = 1;
             // prev sum
             long prev = 0;
             // loop invariant: prev = 0, count = minimum splits so far
-            while(i < n) {
-                if(nums[i] > sum) return false;
-                while(i < n && prev + nums[i] <= sum) {
-                    prev += nums[i++];
+            for (auto num : nums) {
+                if(num > sum) return false;
+                prev += num;
+                if (prev > sum) {
+                    prev = num;
+                    count++;
+                    if(count > m) return false;
                 }
-                count++;
-                if(count > m) return false;
-                prev = 0;
             }
-
-            return count <= m;
-
-
-
+            return true;
         }
+
         int splitArray(vector<int>& nums, int m) {
-            int right = accumulate(nums.begin(), nums.end(), 0);
-            int left = *max_element(nums.begin(), nums.end());
+            long right = accumulate((nums.begin(), nums.end(), (long)0);
+            long left = *max_element(nums.begin(), nums.end());
             while (left < right) {
-                int mid = left + (right - left)/2;
+                long mid = left + (right - left)/2;
                 bool valid = isValidSplit(nums, m, mid);
                 if (valid) {
                     right = mid;
                 } else {
-                    left = mid + 1
+                    left = mid + 1;
                 }
             }
+            return right;
         }
 };
 
