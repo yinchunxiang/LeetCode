@@ -27,6 +27,7 @@ public:
         int left = INT_MAX;
         int right = INT_MIN;
 
+        // 构造函数： 类型， 容器，类型比较函数或者类
         priority_queue<VecIntIter, vector<VecIntIter>, comp> pq;
         for (auto &row : nums) {
             left = min(left, row[0]);
@@ -42,7 +43,9 @@ public:
                 break;
             }
             pq.push(p);
+            //插入priority_queue之后，获取最新的最小值
             left = *(pq.top().first);
+            //更新最大值
             right = max(right, *(p.first));
         }
         return result;
