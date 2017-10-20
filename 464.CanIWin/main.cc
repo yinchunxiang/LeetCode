@@ -24,6 +24,10 @@ public:
     unordered_map<int, bool> m;
     int maxn;
 
+
+
+    // visited是个bit数组
+    // 第i个位为1， 表示这个数字被用过了；否则就是没用过
     bool canWin(int total, int visited) {
         if (m.find(visited) != m.end()) {
             return m[visited];
@@ -34,6 +38,8 @@ public:
             if ((mask & visited) != 0) {
                 continue;
             }
+            //1. 当前挑的数>=total, 说明你赢了
+            //2. 当前挑的数保证对手输了
             if (i >= total || !canWin(total - i, mask | visited)) {
                 m[visited] = true;
                 return true;
