@@ -22,16 +22,21 @@ using namespace std;
 class Solution {
     public:
         int trap(vector<int>& height) {
+            // 用vector模拟单调栈
             vector<int> v;
             int N = height.size();
             int sum = 0;
             for (int i = 0; i < N; ++i) {
+                //栈为空，则直接插入 
                 if (v.empty()) {
                     v.push_back(i);
                     continue;
                 }
+
+                // 当前元素 >= 栈顶元素
                 if (height[i] >= height[v.back()]) {
                     while (!v.empty() && height[i] > height[v.back()]) {
+                        //栈顶元素作为最低点
                         int bar = height[v.back()];
                         v.pop_back();
                         if (!v.empty()) {

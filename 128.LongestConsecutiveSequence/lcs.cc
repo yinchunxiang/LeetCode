@@ -16,6 +16,7 @@ void print_map(Map& map){
 
 
 int longestConsecutive(vector<int> &num) {
+    // 当输入的数组为空的时候，返回0
     int longest = 0;
     Map used;
     for (int i = 0; i < num.size(); i++) {
@@ -28,6 +29,7 @@ int longestConsecutive(vector<int> &num) {
             continue;
         }
 
+        // 先要把自己设置为true
         used[num[i]] = true;
         int length = 1;
         
