@@ -33,12 +33,13 @@ public:
 
         priority_queue<Tuple, std::vector<Tuple>, std::greater<Tuple>> min_heap;
 
-        for (int i = 0; i < nums1.size(); ++i) {
+        int m = (int)nums1.size();
+        int n = (int)nums2.size();
+
+        for (int i = 0; i < min(k, m); ++i) {
             min_heap.emplace(i, 0, nums1[i] + nums2[0]);
         }
 
-        int m = (int)nums1.size();
-        int n = (int)nums2.size();
         for (int i = 0; i < min(k, m * n); ++i) {
             auto t = min_heap.top(); min_heap.pop();
             result.emplace_back(nums1[t.x_], nums2[t.y_]);
