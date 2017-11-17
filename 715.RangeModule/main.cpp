@@ -40,11 +40,36 @@ public:
     }
 
     bool queryRange(int left, int right) {
+        int n = (int)intervals.size();
+        int l = 0;
+        int r = n - 1;
+        while (l <= r) {
+            int m = l + (r -l )/2;
+            if (intervals[m].first >= right) {
+                r = m - 1;
+            } else if (intervals[m].second < left) {
+                l = m + 1;
+            } else {
+                return left >= intervals[m].first && right <= intervals[m].second;
+            }
+        }
+        return false;
 
     }
 
     void removeRange(int left, int right) {
-
+        int n = intervals.size();
+        vector<pair<int, int>> temp;
+        for (int i = 0; i < n; ++i) {
+            //@yincx: 处理没有交集的interval
+            if (intervals[i].second < left || intervals[i].first >= right) {
+                temp.push_back(intervals[i]);
+            } else {
+                if (intervals[i].first < left) temp.emplace_back(intervals[i].first, left);
+                if (intervals[i].second >= right) temp.emplace_back(right, intervals[i].second);
+            }
+        }
+        swap(intervals, temp);
     }
 
 private:
