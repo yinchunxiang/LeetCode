@@ -28,10 +28,12 @@ class Solution {
             if (i < 0 || i >= rows || j < 0 || j >= cols || visited[i][j]) {
                 return;
             }
+            // 当前元素>=上一个元素，中断退出
             if (!path.empty() && path.back() >= matrix[i][j]) {
                 return;
             }
             path.push_back(matrix[i][j]);
+            //visited只是表示在当前路径是不是被访问过
             visited[i][j] = true;
             if (path.size() > count) {
                 count = path.size();
