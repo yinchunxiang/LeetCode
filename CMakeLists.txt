@@ -345,5 +345,5 @@ add_executable(726.main ${SOURCE_FILES} 726.NumberOfAtoms/main.cpp)
 add_executable(726.1 ${SOURCE_FILES} 726.NumberOfAtoms/1.cpp 726.NumberOfAtoms/1.cpp)
 
 add_executable(719.main ${SOURCE_FILES} 719.FindKthSmallestPairDistance/main.cpp )
-add_executable(689.main ${SOURCE_FILES} 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
-add_executable(689.main.1 ${SOURCE_FILES} 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
+add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
+add_executable(689.main.1 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
