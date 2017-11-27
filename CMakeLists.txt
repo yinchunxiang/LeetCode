@@ -129,6 +129,7 @@ set(SOURCE_FILES
         406.QueueReconstructionByHeight/main.cc
         406.QueueReconstructionByHeight/solution.cc
         407.TrappingRainWaterII/1.cc
+        407.TrappingRainWaterII/2.cc
         407.TrappingRainWaterII/main.cc
         41.FirstMissingPositive/FirstMissingPositive.cc
         41.FirstMissingPositive/main.cc
@@ -333,9 +334,16 @@ set(SOURCE_FILES
         WordLadderII/WordLadderII.cc
         WordSearch/word_search.cc
         ZigZag/zz.cc)
-
 add_executable(373.solution ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/solution.cpp)
+add_executable(373.main ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/main.cpp)
+
 add_executable(715.solution ${SOURCE_FILES} 715.RangeModule/main.cpp)
+
 add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2.cpp)
+
 add_executable(726.main ${SOURCE_FILES} 726.NumberOfAtoms/main.cpp)
 add_executable(726.1 ${SOURCE_FILES} 726.NumberOfAtoms/1.cpp 726.NumberOfAtoms/1.cpp)
+
+add_executable(719.main ${SOURCE_FILES} 719.FindKthSmallestPairDistance/main.cpp )
+add_executable(689.main ${SOURCE_FILES} 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
+add_executable(689.main.1 ${SOURCE_FILES} 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
