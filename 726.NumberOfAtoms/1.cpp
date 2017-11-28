@@ -23,7 +23,7 @@ public:
     }
 
 private:
-    //
+    //解析到')'为止的结果
     map<string, int> parseFormula(string& s, int &i) {
         map<string, int> counts;
         size_t n = s.size();
@@ -34,7 +34,7 @@ private:
         return counts;
     }
 
-    //unit指的是 ()digits, 或者UpperLowersdigits
+    //unit指的是UpperLowerDigits这种最小构成
     map<string, int> parseUnit(string &s, int &i) {
         map<string, int> counts;
         size_t n = s.size();

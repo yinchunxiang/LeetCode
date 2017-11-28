@@ -343,6 +343,8 @@ add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2
 
 add_executable(726.main ${SOURCE_FILES} 726.NumberOfAtoms/main.cpp)
 add_executable(726.1 ${SOURCE_FILES} 726.NumberOfAtoms/1.cpp 726.NumberOfAtoms/1.cpp)
+add_executable(726.main.2 726.NumberOfAtoms/2.cc)
+add_executable(726.main.3 726.NumberOfAtoms/3.cc)
 
 add_executable(719.main ${SOURCE_FILES} 719.FindKthSmallestPairDistance/main.cpp )
 add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
