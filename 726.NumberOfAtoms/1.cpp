@@ -14,6 +14,7 @@ public:
         size_t n = formula.size();
         // string => count
         int i = 0;
+        //返回字符串出现的次数
         map<string, int> counts = parseFormula(formula, i);
         for (auto p : counts) {
             output += p.first;
@@ -22,6 +23,7 @@ public:
     }
 
 private:
+    //
     map<string, int> parseFormula(string& s, int &i) {
         map<string, int> counts;
         size_t n = s.size();
@@ -32,10 +34,12 @@ private:
         return counts;
     }
 
+    //unit指的是 ()digits, 或者UpperLowersdigits
     map<string, int> parseUnit(string &s, int &i) {
         map<string, int> counts;
         size_t n = s.size();
         if (s[i] == '(') {
+            //括号内的又是一个formula，所以进行递归
             map<string, int> cnts = parseFormula(s, ++i);
             int digits = parseDigits(s, ++i);
             merge(counts, cnts, digits);

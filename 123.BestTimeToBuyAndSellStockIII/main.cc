@@ -12,7 +12,11 @@
  * @date 2017/02/19 12:50:09
  * @brief 
  * 
- **/ 
+ **/
+
+#include <vector>
+
+using namespace std;
  
 class Solution {
     public:
