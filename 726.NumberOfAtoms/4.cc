@@ -39,11 +39,21 @@ public:
             } else {
                 int start = i - 1;
                 while (i < n && islower(formula[i])) {
-
+                    i++;
                 }
-
+                string atom = formula.substr(start, i - start);
+                int val = 0;
+                while (i < n && isdigit(formula[i])) val = val * 10 + (formula[i] - '0');
+                if (0 == val) val = 1;
+                m[atom] += val;
             }
         }
+        string result;
+        for (auto& p : m) {
+            result += p.first;
+            if (p.second > 1) result += to_string(p.second);
+        }
+        return result;
 
     }
 };
