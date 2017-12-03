@@ -26,6 +26,7 @@ class Solution {
                 return 0;
             }
 
+            //从[0, i]可以获取的最大利润
             vector<int> left(n, 0);
             int left_min = prices[0];
             for (int i = 1; i < n; ++i) {
@@ -33,6 +34,7 @@ class Solution {
                 left[i] = max(left[i - 1], prices[i] - left_min);
             }
 
+            //从[i, n - 1]可以获取的最大利润
             vector<int> right(n, 0);
             int right_max = prices[n - 1];
             for (int i = n - 2; i >= 0; --i) {
@@ -40,6 +42,7 @@ class Solution {
                 right[i] = max(right[i + 1], right_max - prices[i]);
             }
 
+            //获得最大利润
             int max_profile = 0;
             for (int i = 0; i < n; ++i) {
                 max_profile = max(max_profile, left[i] + right[i]);
