@@ -351,3 +351,4 @@ add_executable(719.main ${SOURCE_FILES} 719.FindKthSmallestPairDistance/main.cpp
 add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
 add_executable(732.main 732.MyCalendarIII/main.cc)
 add_executable(689.main.1 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
+add_executable(736.main 736.ParseLispExpression/main.cc)
