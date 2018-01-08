@@ -347,8 +347,14 @@ add_executable(726.main.2 726.NumberOfAtoms/2.cc)
 add_executable(726.main.3 726.NumberOfAtoms/3.cc)
 add_executable(726.main.4 726.NumberOfAtoms/4.cc)
 
-add_executable(719.main ${SOURCE_FILES} 719.FindKthSmallestPairDistance/main.cpp )
+add_executable(719.main 719.FindKthSmallestPairDistance/main.cpp )
 add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
 add_executable(732.main 732.MyCalendarIII/main.cc)
 add_executable(689.main.1 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
+<<<<<<< HEAD
 add_executable(736.main 736.ParseLispExpression/main.cc)
+=======
+add_executable(736.main 736.ParseLispExpression/main.cc )
+add_executable(743.main 743.NetworkDelayTime/main.cc )
+add_executable(742.main 742.ClosestLeafInABinaryTree/main.cc )
+>>>>>>> c580b991cc9f87a1de2bb9b4f0df6ca1023c1f70
