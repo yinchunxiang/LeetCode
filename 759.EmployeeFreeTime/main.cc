@@ -52,19 +52,17 @@ public:
     }
 
     vector<Interval> employeeFreeTimeV1(vector<vector<Interval>>& schedule) {
-        struct Comp {
-            bool operator() (const Interval& left, const Interval& right) {
-                return left.start < right.start;
-            }
-        };
         vector<Interval> sortedIntervals;
-        for (int i = 0; i < schedule.size(); ++i) {
-            for (int j = 0; j < schedule[i].size(); ++j) {
-                sortedIntervals.push_back(schedule[i][j]);
-            }
+        for (const auto& intervals : schedule) {
+            sortedIntervals.insert(end(sortedIntervals), begin(intervals), end(intervals));
         }
-        Comp comp;
-        sort(begin(sortedIntervals), end(sortedIntervals), comp);
+        sort(
+                begin(sortedIntervals),
+                end(sortedIntervals),
+                [](const Interval& a, const Interval& b) {
+                    return a.start < b.start;
+                }
+        );
 
         int preStart = INT_MIN;
         int preEnd = sortedIntervals[0].start;
@@ -90,6 +88,7 @@ public:
 
 int main(int argc, char* argv[]) {
     //TODO
+    cout << "---> start ..." << endl;
     vector<vector<Interval>> input = {
             {{1, 2}, {5, 6}},
             {{1, 3}},
