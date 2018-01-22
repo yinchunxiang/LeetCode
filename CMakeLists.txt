@@ -334,13 +334,15 @@ set(SOURCE_FILES
         WordLadderII/WordLadderII.cc
         WordSearch/word_search.cc
         ZigZag/zz.cc)
+add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2.cpp)
 add_executable(373.solution ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/solution.cpp)
 add_executable(373.main ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/main.cpp)
 
+add_executable(632.main.1 632.SmallestRange/main.1.cc )
+add_executable(668.main.1 668.KthSmallestNumberInMultiplicationTable/main.1.cc )
+
+
 add_executable(715.solution ${SOURCE_FILES} 715.RangeModule/main.cpp)
-
-add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2.cpp)
-
 add_executable(726.main ${SOURCE_FILES} 726.NumberOfAtoms/main.cpp)
 add_executable(726.1 ${SOURCE_FILES} 726.NumberOfAtoms/1.cpp 726.NumberOfAtoms/1.cpp)
 add_executable(726.main.2 726.NumberOfAtoms/2.cc)
@@ -355,4 +357,6 @@ add_executable(736.main 736.ParseLispExpression/main.cc )
 add_executable(736.main.1 736.ParseLispExpression/main.1.cc )
 add_executable(743.main 743.NetworkDelayTime/main.cc )
 add_executable(742.main 742.ClosestLeafInABinaryTree/main.cc )
+add_executable(753.main 753.CrackingTheSafe/main.cc )
+add_executable(757.main 757.SetIntersectionSizeAtLeastTwo/main.cc )
 add_executable(759.main 759.EmployeeFreeTime/main.cc )

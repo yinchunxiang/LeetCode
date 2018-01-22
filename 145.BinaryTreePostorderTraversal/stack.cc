@@ -16,7 +16,18 @@
  
 #include <iostream>
 #include <vector>
+#include <stack>
+
 using namespace std;
+
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
+
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
@@ -58,7 +69,7 @@ public:
 int main(int argc, const char* argv[]) {
     vector<int> v = {};
     Solution s;
-    cout << s.solve(v) << endl;
+    cout << s.postorderTraversal(v) << endl;
     return 0;
 }
 

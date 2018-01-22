@@ -23,6 +23,19 @@
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+#include <stack>
+#include <vector>
+
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+};
+
 class Solution {
 public:
     vector<int> postorderTraversal(TreeNode* root) {
@@ -30,10 +43,10 @@ public:
         if (nullptr == root) {
             return result;
         }
-        stack<Node*> s;
+        stack<TreeNode*> s;
         s.push(root);
         while (!s.empty()) {
-            Node* node = s.top();
+            TreeNode* node = s.top();
             if (nullptr == node->left && nullptr == node->right) {
                 result.push_back(node->val);
                 s.pop();
@@ -49,7 +62,7 @@ public:
             }
         }
         return result;
-        
+
     }
 };
 

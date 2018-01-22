@@ -27,7 +27,7 @@ public:
             bool operator()(const pair<VecIntIter, VecIntIter> &a, const pair<VecIntIter, VecIntIter> &b) {
                 return (*a.first) > (*b.first);
             }
-        }
+        };
 
         int left = INT_MAX;
         int right = INT_MIN;

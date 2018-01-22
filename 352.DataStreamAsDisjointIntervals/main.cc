@@ -37,17 +37,18 @@ public:
     void addNum(int val) {
         Interval interval(val, val);
         auto it = sortedIntervalSet.lower_bound(interval);
+        // 注意可以跟前面合并的情况
         if (it != sortedIntervalSet.begin() && (--it)->end + 1 < val) {
             ++it;
         }
         int start = val;
         int end = val;
-        while (it != sortedIntervalSet.end() && val + 1 >= it->start) {
+        while (it != sortedIntervalSet.end() && val + 1 >= it->start && val - 1 <= it->end) {
             start = min(start, it->start);
             end = max(end, it->end);
             it = sortedIntervalSet.erase(it);
         }
-        sortedIntervalSet.insert(it, interval);
+        sortedIntervalSet.insert(it, Interval(start, end));
     }
     
     vector<Interval> getIntervals() {
