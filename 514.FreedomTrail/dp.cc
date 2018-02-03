@@ -27,10 +27,10 @@ public:
         if (ring.empty() || key.empty()) {
             return 0;
         }
-        int m = ring.size();
-        int n = key.size();
+        int m = (int)ring.size();
+        int n = (int)key.size();
         int res = m * n;
-        vector<vector<int>> dp(n + 1, vector<int>(m, 0));
+        vector<vector<int>> dp((size_t)n + 1, vector<int>(m, 0));
 
         for (int i = n - 1; i >= 0; --i) {
             for (int j = m - 1; j >= 0; --j) {

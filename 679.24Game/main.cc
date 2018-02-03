@@ -12,16 +12,20 @@
  * @date 2017/09/23 17:53:27
  * @brief 
  * 
- **/ 
+ **/
+
+using namespace std;
+
+#include <vector>
  
 
 class Solution {
 public:
-    bool judgePoint24(vector<double>& v) {
+    bool judgePoint24(vector<double>& nums) {
         int size = nums.size();
         if (0 == size) return false;
         if (1 == size) {
-            return abs(24 - nums[0]) < 0.001;
+            return abs(nums[0] - 24d) < 0.001;
         }
         for (int i = 0; i < size; ++i) {
             for (int j = 0; j < size; ++j) {
@@ -38,14 +42,14 @@ public:
                         v.push_back(nums[i] + nums[j]);
                     }
                     if (1 == k) {
-                        v.push_back(num[i] * nums[j]);
+                        v.push_back(nums[i] * nums[j]);
                     }
                     if (2 == k) {
-                        v.push_back(num[i] - nums[j]);
+                        v.push_back(nums[i] - nums[j]);
                     }
                     if (3 == k) {
                         if (0 == nums[j])  continue;
-                        v.push_back(nums[i] / num[j]);
+                        v.push_back(nums[i] / nums[j]);
                     }
                     if (judgePoint24(v)) {
                         return true;
