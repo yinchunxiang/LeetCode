@@ -207,7 +207,6 @@ set(SOURCE_FILES
         632.SmallestRange/main.cc
         653.TwoSumIV/653.two-sum-iv-input-is-a-bst.cpp
         668.KthSmallestNumberInMultiplicationTable/main.cpp
-        679.24Game/main.cc
         691.StickersToSpellWord/691.stickers-to-spell-word.cpp
         691.StickersToSpellWord/main.cc
         719.FindKthSmallestPairDistance/main.cpp
@@ -341,6 +340,9 @@ add_executable(410.main.1 410.SplitArrayLargestSum/main.1.cc)
 
 add_executable(632.main.1 632.SmallestRange/main.1.cc )
 add_executable(668.main.1 668.KthSmallestNumberInMultiplicationTable/main.1.cc )
+add_executable(679.main 679.24Game/main.cc )
+add_executable(679.main.1 679.24Game/main.1.cc )
+add_executable(679.main.2 679.24Game/main.2.cc )
 
 
 add_executable(715.solution ${SOURCE_FILES} 715.RangeModule/main.cpp)
@@ -358,6 +360,8 @@ add_executable(736.main 736.ParseLispExpression/main.cc )
 add_executable(736.main.1 736.ParseLispExpression/main.1.cc )
 add_executable(743.main 743.NetworkDelayTime/main.cc )
 add_executable(742.main 742.ClosestLeafInABinaryTree/main.cc )
+add_executable(749.main 749.ContainVirus/main.cc )
 add_executable(753.main 753.CrackingTheSafe/main.cc )
 add_executable(757.main 757.SetIntersectionSizeAtLeastTwo/main.cc )
 add_executable(759.main 759.EmployeeFreeTime/main.cc )
+add_executable(765.main 765.CouplesHoldingHands/main.cc )
