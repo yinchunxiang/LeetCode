@@ -336,6 +336,7 @@ set(SOURCE_FILES
 add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2.cpp)
 add_executable(373.solution ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/solution.cpp)
 add_executable(373.main ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/main.cpp)
+add_executable(410.main.1 410.SplitArrayLargestSum/main.1.cc)
 
 add_executable(632.main.1 632.SmallestRange/main.1.cc )
 add_executable(668.main.1 668.KthSmallestNumberInMultiplicationTable/main.1.cc )
