@@ -22,13 +22,14 @@ using namespace std;
 class Solution {
     public:
         int findMaximizedCapital(int k, int W, vector<int>& Profits, vector<int>& Capital) {
-            auto cmp1 = [](const pair<int, int>& l, const pair<int, int> &r) {return l.first > r.first;};
-            //priority_queue<pair<int, int>, vector<pair<int, int>>, function<bool(const pair<int, int>& l, const pair<int,int> &r)>> cq(cmp1);
+            auto cmp1 = [](const pair<int, int>& l, const pair<int, int> &r) {return l.first < r.first;};
+            //capital priority queue
             priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp1)> cq(cmp1);
-            auto cmp2 = [](const pair<int, int> &l, const pair<int, int> &r) {return l.second < r.second;};
-            //priority_queue<pair<int, int>, vector<pair<int, int>>, function<bool(const pair<int, int>& l, const pair<int,int> &r)>> pq(cmp2);
+            auto cmp2 = [](const pair<int, int> &l, const pair<int, int> &r) {return l.second > r.second;};
+            // profit priority queue
             priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp2)> pq(cmp2);
 
+            // 按照capital入队列
             for (int i = 0; i < Profits.size(); ++i) {
                 cq.push(pair<int, int>(Capital[i], Profits[i]));
             }
