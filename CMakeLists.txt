@@ -340,6 +340,8 @@ add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2
 add_executable(373.solution ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/solution.cpp)
 add_executable(373.main ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/main.cpp)
 add_executable(410.main.1 410.SplitArrayLargestSum/main.1.cc)
+add_executable(435.main.1 435.Non-overlappingIntervals/main.1.cc)
+add_executable(452.main.1 452.MinimumNumberOfArrowsToBurstBalloons/main.1.cc)
 
 add_executable(502.main 502.IPO/main.cc)
 add_executable(502.main.1 502.IPO/main.1.cc)

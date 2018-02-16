@@ -15,6 +15,7 @@ public:
 
     int findMaximizedCapital(int k, int W, vector<int>& Profits, vector<int>& Capital) {
         // 按照capital排序
+        // 注意: priority_queue使用的排序函数跟一般的是相反的
         auto cmp1 = [](const pair<int,int>& l, const pair<int, int>& r) {return l.first > r.first;};
         priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp1)> cq(cmp1);
 
