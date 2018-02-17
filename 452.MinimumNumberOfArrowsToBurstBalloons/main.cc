@@ -12,9 +12,15 @@
  * @date 2017/02/22 08:45:30
  * @brief 
  * 
- **/ 
+ **/
 
-operator < (const pair<int, int> &l, const pair<int, int> &r) {
+#include <vector>
+
+#include <algorithm>
+
+using namespace std;
+
+bool operator < (const pair<int, int> &l, const pair<int, int> &r) {
     return l.first < r.first;
 }
  
