@@ -345,6 +345,7 @@ add_executable(452.main.1 452.MinimumNumberOfArrowsToBurstBalloons/main.1.cc)
 
 add_executable(502.main 502.IPO/main.cc)
 add_executable(502.main.1 502.IPO/main.1.cc)
+add_executable(517.main  517.SuperWashingMachines/main.cc)
 add_executable(632.main.1 632.SmallestRange/main.1.cc )
 add_executable(668.main.1 668.KthSmallestNumberInMultiplicationTable/main.1.cc )
 add_executable(679.main 679.24Game/main.cc )

@@ -15,6 +15,7 @@
  **/
 
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -29,11 +30,13 @@ struct Interval {
 class Solution {
 public:
     int eraseOverlapIntervals(vector<Interval>& intervals) {
+        // 首先考虑输入为空的情况
+        if (intervals.empty()) return 0;
         auto cmp = [](const Interval& l, const Interval &r) {return l.end < r.end;};
         sort(intervals.begin(), intervals.end(), cmp);
         int n = (int)intervals.size();
         int pre = intervals[0].end;
-        int count = 0;
+        int count = 1;
         for (int i = 1; i < n; ++i) {
             // 计算不重复的
             if (intervals[i].start >= pre) {
@@ -46,6 +49,19 @@ public:
     }
 
 };
+
+int main(int argc, char* argv[]) {
+    //TODO
+    vector<vector<int>> input = { {1,2}, {2,3}, {3,4}, {1,3} };
+    vector<Interval> intervals;
+    for (auto& p : input) {
+        Interval interval(p[0], p[1]);
+        intervals.push_back(interval);
+    }
+    Solution s;
+    cout << s.eraseOverlapIntervals(intervals) << endl;
+    return 0;
+}
 
 
 
