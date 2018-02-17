@@ -340,10 +340,13 @@ add_executable(410.main.1 410.SplitArrayLargestSum/main.1.cc)
 
 add_executable(632.main.1 632.SmallestRange/main.1.cc )
 add_executable(668.main.1 668.KthSmallestNumberInMultiplicationTable/main.1.cc )
+add_executable(678.main 678.ValidParenthesisString/main.cc )
 add_executable(679.main 679.24Game/main.cc )
 add_executable(679.main.1 679.24Game/main.1.cc )
 add_executable(679.main.2 679.24Game/main.2.cc )
 
+add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
+add_executable(689.main.1 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
 
 add_executable(715.solution ${SOURCE_FILES} 715.RangeModule/main.cpp)
 add_executable(726.main ${SOURCE_FILES} 726.NumberOfAtoms/main.cpp)
@@ -353,9 +356,7 @@ add_executable(726.main.3 726.NumberOfAtoms/3.cc)
 add_executable(726.main.4 726.NumberOfAtoms/4.cc)
 
 add_executable(719.main 719.FindKthSmallestPairDistance/main.cpp )
-add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
 add_executable(732.main 732.MyCalendarIII/main.cc)
-add_executable(689.main.1 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
 add_executable(736.main 736.ParseLispExpression/main.cc )
 add_executable(736.main.1 736.ParseLispExpression/main.1.cc )
 add_executable(743.main 743.NetworkDelayTime/main.cc )
