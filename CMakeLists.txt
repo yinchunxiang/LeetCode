@@ -375,3 +375,5 @@ add_executable(757.main 757.SetIntersectionSizeAtLeastTwo/main.cc )
 add_executable(759.main 759.EmployeeFreeTime/main.cc )
 add_executable(761.main 761.SpecialBinaryString/main.cc )
 add_executable(765.main 765.CouplesHoldingHands/main.cc )
+
+add_executable(geeksforgeeks geeksforgeeks/SearchingAndSorting/2/CombSort.cc)
