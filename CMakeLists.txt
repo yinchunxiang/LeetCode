@@ -334,7 +334,7 @@ set(SOURCE_FILES
         ZigZag/zz.cc)
 
 
-add_executable(0.demo 0.demo/main.cc)
+add_executable(0.demo 0.demo/main.cc 147.InsertionSortList/solution.cc)
 
 add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2.cpp)
 add_executable(373.solution ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/solution.cpp)
