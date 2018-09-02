@@ -377,3 +377,8 @@ add_executable(761.main 761.SpecialBinaryString/main.cc )
 add_executable(765.main 765.CouplesHoldingHands/main.cc )
 
 add_executable(geeksforgeeks geeksforgeeks/SearchingAndSorting/2/CombSort.cc)
+add_executable(lrucache LRUCache/solution.cc)
+add_executable(460.main 460.LFUCache/main.cc)
+add_executable(768.main 768.MaxChunksToMakeSortedII/main.cc)
+add_executable(769.main 769.MaxChunksToMakeSorted/main.cc)
+
