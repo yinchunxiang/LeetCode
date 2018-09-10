@@ -381,4 +381,6 @@ add_executable(lrucache LRUCache/solution.cc)
 add_executable(460.main 460.LFUCache/main.cc)
 add_executable(768.main 768.MaxChunksToMakeSortedII/main.cc)
 add_executable(769.main 769.MaxChunksToMakeSorted/main.cc)
+add_executable(25.main 25.ReverseNodesInk-Group/main.cc)
+add_executable(25.solution 25.ReverseNodesInk-Group/solution.cc)
 
