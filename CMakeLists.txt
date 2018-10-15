@@ -334,7 +334,7 @@ set(SOURCE_FILES
         ZigZag/zz.cc)
 
 
-add_executable(0.demo 0.demo/main.cc)
+add_executable(0.demo 0.demo/main.cc 147.InsertionSortList/solution.cc)
 
 add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2.cpp)
 add_executable(373.solution ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/solution.cpp)
@@ -348,10 +348,13 @@ add_executable(502.main.1 502.IPO/main.1.cc)
 add_executable(517.main  517.SuperWashingMachines/main.cc)
 add_executable(632.main.1 632.SmallestRange/main.1.cc )
 add_executable(668.main.1 668.KthSmallestNumberInMultiplicationTable/main.1.cc )
+add_executable(678.main 678.ValidParenthesisString/main.cc )
 add_executable(679.main 679.24Game/main.cc )
 add_executable(679.main.1 679.24Game/main.1.cc )
 add_executable(679.main.2 679.24Game/main.2.cc )
 
+add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
+add_executable(689.main.1 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
 
 add_executable(715.solution ${SOURCE_FILES} 715.RangeModule/main.cpp)
 add_executable(726.main ${SOURCE_FILES} 726.NumberOfAtoms/main.cpp)
@@ -361,9 +364,7 @@ add_executable(726.main.3 726.NumberOfAtoms/3.cc)
 add_executable(726.main.4 726.NumberOfAtoms/4.cc)
 
 add_executable(719.main 719.FindKthSmallestPairDistance/main.cpp )
-add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
 add_executable(732.main 732.MyCalendarIII/main.cc)
-add_executable(689.main.1 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
 add_executable(736.main 736.ParseLispExpression/main.cc )
 add_executable(736.main.1 736.ParseLispExpression/main.1.cc )
 add_executable(743.main 743.NetworkDelayTime/main.cc )
@@ -374,3 +375,12 @@ add_executable(757.main 757.SetIntersectionSizeAtLeastTwo/main.cc )
 add_executable(759.main 759.EmployeeFreeTime/main.cc )
 add_executable(761.main 761.SpecialBinaryString/main.cc )
 add_executable(765.main 765.CouplesHoldingHands/main.cc )
+
+add_executable(geeksforgeeks geeksforgeeks/SearchingAndSorting/2/CombSort.cc)
+add_executable(lrucache LRUCache/solution.cc)
+add_executable(460.main 460.LFUCache/main.cc)
+add_executable(768.main 768.MaxChunksToMakeSortedII/main.cc)
+add_executable(769.main 769.MaxChunksToMakeSorted/main.cc)
+add_executable(25.main 25.ReverseNodesInk-Group/main.cc)
+add_executable(25.solution 25.ReverseNodesInk-Group/solution.cc)
+
