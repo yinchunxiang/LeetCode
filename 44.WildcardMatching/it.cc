@@ -1,30 +1,31 @@
 /****************************************************************************
- * 
+ *
  * Copyright (C) 2017 @com, Inc. All rights reserved.
- * 
+ *
  ****************************************************************************/
 
 
 
-/** 
+/**
  * @file main.cc
  * @author yinchunxiang(@com)
  * @date 2017/03/10 00:08:53
- * @brief 
- * 
- **/ 
+ * @brief
+ *
+ **/
 
 #include <iostream>
 #include <string>
 
 using namespace  std;
- 
+
 class Solution {
     public:
         bool isMatch(string s, string p) {
             int M = s.size();
             int N = p.size();
             int sstar = -1;
+            // 用来记录上次*出现的位置
             int pstar = -1;
             int pi = 0;
             for (int si = 0; si < M; ++si, ++pi) {
