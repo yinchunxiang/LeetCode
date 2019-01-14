@@ -286,7 +286,7 @@ set(SOURCE_FILES
         MinimumStringWindow/msw.cc
         MinPathSum/min_path_sum.cc
         Multiply/multiply.cc
-        NQueens/nqueens.cc
+        51.NQueens/nqueens.cc
         131.Palindrome/Palindrome.cc
         PalindromeII/Palindrome.cc
         ParenthesesOrder/ParenthesesOrder.cc
@@ -385,4 +385,8 @@ add_executable(25.main 25.ReverseNodesInk-Group/main.cc)
 add_executable(25.solution 25.ReverseNodesInk-Group/solution.cc)
 add_executable(131.palindrome 131.Palindrome/Palindrome.cc)
 add_executable(131.palindrome.dp 131.Palindrome/dp.cc)
+add_executable(131.palindrome.dpdfs 131.Palindrome/dp+dfs.cc)
+add_executable(62.solution 62.UniquePaths/solution.cc)
+add_executable(62.solution.dp 62.UniquePaths/dp.cc)
+add_executable(51.solution.dfs 51.NQueens/dfs.cc)
 
