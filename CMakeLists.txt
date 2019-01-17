@@ -234,7 +234,7 @@ set(SOURCE_FILES
         Candy/Candy.cc
         CloneGraphs/CloneGraphs.cc
         39.CombinationSum/combsum.cc
-        CombinationSumII/combsum2.cc
+        40.CombinationSumII/combsum2.cc
         Combine/combine.cc
         ConstructBtFromInorderAndPostorderTraverse/build_tree.cc
         ContainerWithMostWater/container.cc
