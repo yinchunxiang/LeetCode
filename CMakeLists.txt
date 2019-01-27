@@ -233,8 +233,8 @@ set(SOURCE_FILES
         atoi/atoi.cc
         Candy/Candy.cc
         CloneGraphs/CloneGraphs.cc
-        CombinationSum/combsum.cc
-        CombinationSumII/combsum2.cc
+        39.CombinationSum/combsum.cc
+        40.CombinationSumII/combsum2.cc
         Combine/combine.cc
         ConstructBtFromInorderAndPostorderTraverse/build_tree.cc
         ContainerWithMostWater/container.cc
