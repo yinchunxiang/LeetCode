@@ -299,7 +299,7 @@ set(SOURCE_FILES
         RemoveDupFromSortedList/remove_dup.cc
         RemoveDupFromSortedListII/remove_dup2.cc
         ReorderList/ReorderList.cc
-        RestoreIpAddress/restore_ip_addr.cc
+        93.RestoreIpAddress/restore_ip_addr.cc
         ReverseInteger/ReverseInterger.cc
         ReverseNodesInKGroups/reverse.cc
         ReverseWord/ReverseWord.cc
@@ -314,10 +314,10 @@ set(SOURCE_FILES
         SimplifyPath/simplify_path.cc
         SingleNumberII/SingleNumberII.cc
         SpiralMatrix/spiral_matrix.cc
-        sqrt/sqrt.cc
+        69.sqrt/sqrt.cc
         SubAndConcat/subconcat.cc
         subsetII/subsetII.cc
-        sudoku/sudoku.cc
+        37.sudoku/sudoku.cc
         super2048/super2048.cc
         SurroundedRegions/SurroundedRegions.cc
         TextJustification/text_just.cc
@@ -330,7 +330,7 @@ set(SOURCE_FILES
         WordBreakII/WordBreakII.cc
         WordLadder/WordLadder.cc
         WordLadderII/WordLadderII.cc
-        WordSearch/word_search.cc
+        79.WordSearch/word_search.cc
         ZigZag/zz.cc)
 
 
