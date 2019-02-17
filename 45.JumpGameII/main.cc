@@ -14,12 +14,15 @@
  * 
  **/ 
 
+#include <vector>
+#include <list>
 
+using namespace std;
  
 class Solution {
     public:
         int jump(vector<int>& nums) {
-            int n = nums.size();
+            int n = (int)nums.size();
             
             // [left, right] 当前覆盖区域
             int left = 0;
@@ -27,12 +30,12 @@ class Solution {
             // 到达当前覆盖区域需要的steps
             int steps = 0;
             while (left <= right) {
-                step += 1;
-                old_right = right;
+                steps += 1;
+                int old_right = right;
                 for (int i = left; i <=right; ++i) {
                     int new_right = i + nums[i];
                     if (new_right >= n - 1) {
-                        return step;
+                        return steps;
                     }
                     if (new_right > right) {
                         right = new_right;
@@ -59,6 +62,30 @@ class Solution {
                 nextlast = max(nextlast, i + nums[i]);
             }
             return steps;
+        }
+
+        int jump2(vector<int>& nums) {
+          int n = (int) nums.size();
+          if (n < 2) return 0;
+          int prev_last = -1;
+          int cur_last = 0;
+          int next_last = -1;
+          int steps = 0;
+          while (true) {
+            ++steps;
+            for (int i = prev_last + 1; i <= cur_last; ++i) {
+              next_last = max(next_last, i + nums[i]);
+              if (next_last >= n - 1) return steps;
+            }
+            if (next_last <= cur_last) return -1;
+            prev_last = cur_last;
+            cur_last = next_last;
+            next_last = -1;
+          }
+          return steps;
+        }
+
+        int jump3(vector<int>& nums) {
         }
 
 };

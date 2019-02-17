@@ -246,9 +246,9 @@ set(SOURCE_FILES
         Daily/20161206.LeftViewTree/main.cc
         Daily/20161208.StringChain/main.cc
         Daily/Include/tree.cc
-        DecodeWay/decode_way.cc
-        DistinceSubsequence/ds.cc
-        EditDistance/edit_distance.cc
+        91.DecodeWay/decode_way.cc
+        115.DistinceSubsequence/ds.cc
+        72.EditDistance/edit_distance.cc
         EvaluateReversePolishNotation/evalRPN.cc
         FindKthOfTwoSortedArray/FindKthOfTwoSortedArray.cc
         FindShortestSubarrayContainingAllElements/main.cc
@@ -264,9 +264,9 @@ set(SOURCE_FILES
         geeksforgeeks/SearchInAlmostSortedArray/main.cc
         geeksforgeeks/SingleLinkedListQuickSort/main.cc
         GrayCode/gray_code.cc
-        Histogram/histogram.cc
+        84.Histogram/histogram.cc
         IntergerToRoman/int_to_roman.cc
-        InterleavingString/ils.cc
+        97.InterleavingString/ils.cc
         LengthOfLastWord/length_of_last_word.cc
         LongestCommonPrefix/lcp.cc
         LongestIncreaseSequeue/solution.cc
@@ -281,7 +281,7 @@ set(SOURCE_FILES
         MaxPointsOnALine/MaxPointsOnALine.cc
         MedianOfTwoSortedArray/MedianOfTwoSortedArray.cc
         MergeSortArray/MergeSortArray.cc
-        MinimumPathSum/MinimumPathSum.cc
+        64.MinimumPathSum/MinimumPathSum.cc
         MinimumStringWindow/min_str_window.cc
         MinimumStringWindow/msw.cc
         MinPathSum/min_path_sum.cc
@@ -304,9 +304,9 @@ set(SOURCE_FILES
         ReverseNodesInKGroups/reverse.cc
         ReverseWord/ReverseWord.cc
         ReverseWords/ReverseWords.cc
-        ScrambleString/ass.cc
-        ScrambleString/ScrambleString.cc
-        ScrambleString/solution.cc
+        87.ScrambleString/ass.cc
+        87.ScrambleString/ScrambleString.cc
+        87.ScrambleString/solution.cc
         Search2DMatrix/Search2DMatrix.cc
         SearchInRotatedSortedArray/search.cc
         Set/set.cc
