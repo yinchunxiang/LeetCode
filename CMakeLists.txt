@@ -235,7 +235,7 @@ set(SOURCE_FILES
         CloneGraphs/CloneGraphs.cc
         39.CombinationSum/combsum.cc
         40.CombinationSumII/combsum2.cc
-        Combine/combine.cc
+        77.Combination/combine.cc
         ConstructBtFromInorderAndPostorderTraverse/build_tree.cc
         ContainerWithMostWater/container.cc
         Contest.2017.03.05/k-diff/main.cc
@@ -294,7 +294,7 @@ set(SOURCE_FILES
         PascalTriangleII/pascal_triangle.cc
         PerfectSquares/PerfectSquares.cc
         PermutationSequence/PermutationSequence.cc
-        RegularExpressionMatching/re.cc
+        10.RegularExpressionMatching/re.cc
         RemoveDupFromSortedArray/remove_dup.cc
         RemoveDupFromSortedList/remove_dup.cc
         RemoveDupFromSortedListII/remove_dup2.cc
@@ -311,7 +311,7 @@ set(SOURCE_FILES
         SearchInRotatedSortedArray/search.cc
         Set/set.cc
         SetMatrixZeros/set_matrix_zeros.cc
-        SimplifyPath/simplify_path.cc
+        71.SimplifyPath/simplify_path.cc
         SingleNumberII/SingleNumberII.cc
         SpiralMatrix/spiral_matrix.cc
         69.sqrt/sqrt.cc
@@ -324,7 +324,7 @@ set(SOURCE_FILES
         ThreeSumClosest/three_sum_closest.cc
         TrapWater/trap_water.cc
         Triangle/triangle.cc
-        ValidNumber/valid_number.cc
+        65.ValidNumber/valid_number.cc
         WildcardMatch/wildcard.cc
         WordBreak/WordBreak.cc
         WordBreakII/WordBreakII.cc
