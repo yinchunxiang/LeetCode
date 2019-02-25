@@ -12,7 +12,15 @@
  * @date 2017/09/10 15:56:20
  * @brief 
  * 
- **/ 
+ **/
+
+#include <string>
+
+#include <vector>
+#include <map>
+
+using namespace std;
+
  
 class Solution {
 public:
@@ -43,6 +51,31 @@ public:
             /* update d here if finding maximum*/
         }
         return d;
+    }
+    int solve(string s) {
+      int n = (int)s.size();
+      if (n < 2) return n;
+      vector<int> count(256, 0);
+      int max_len = 0;
+      int start = 0;
+      for (int i = 0; i < n; ++i) {
+        if (++count[s[i]] > 1) { // 出现重复
+          // 计算新的长度
+          max_len = max(max_len, i - start);
+          // 计算新的start
+          while (count[s[i]] > 1) {
+            count[s[start++]] --;
+          }
+        }
+      }
+      // 注意考虑结束的问题
+      max_len = std::max(max_len, n - start);
+      return max_len;
+
+    }
+
+    int solve1(string s) {
+      // leetcode 上有个更进一步的nb解法
     }
 };
 
