@@ -300,7 +300,7 @@ set(SOURCE_FILES
         RemoveDupFromSortedListII/remove_dup2.cc
         ReorderList/ReorderList.cc
         93.RestoreIpAddress/restore_ip_addr.cc
-        ReverseInteger/ReverseInterger.cc
+        7.ReverseInteger/ReverseInterger.cc
         ReverseNodesInKGroups/reverse.cc
         ReverseWord/ReverseWord.cc
         ReverseWords/ReverseWords.cc
