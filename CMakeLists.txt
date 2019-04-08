@@ -390,3 +390,5 @@ add_executable(62.solution 62.UniquePaths/solution.cc)
 add_executable(62.solution.dp 62.UniquePaths/dp.cc)
 add_executable(51.solution.dfs 51.NQueens/dfs.cc)
 
+add_executable(1023.CamelcaseMatching.main 1023.CamelcaseMatching/main.cc)
+
