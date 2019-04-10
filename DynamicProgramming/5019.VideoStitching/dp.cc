@@ -46,12 +46,11 @@ Explanation:
 Notice you can have extra video after the event ends.
 */
 
-// 感觉有点像跳台阶那个， 最少多少步能跳到顶
-// 每个时间段，代表的是从某个台阶能跳的最远距离
-// 从0开始最远跳多远， [0, 1], [0, 2], [0, 4], 最远跳到4
-// 下面就变成，从 1/2/3/4开始跳，最远跳到多少， 假设最远是10，
-// 则接下来变成从 5/6/7/8/9/10开始跳最远到多少
-// 感觉本质变成是bfs， 最短距离、最少步骤 => bfs, 以后可以尽量往这个方面靠
+/**
+ * dp思路：
+ * dp[i]：表示[0, i]范围需要的最少clip个数
+ * dp[i + 1] = min(dp[i + 1], dp[j] + 1), 0 <= j < i + 1
+ */
 
 class Solution {
 public:
@@ -63,7 +62,7 @@ public:
       ends[clip[0]] = max(clip[1], ends[clip[0]]);
     }
     for (int i = 1; i <= T; ++i) {
-      for (int j = 0; j <= i; ++j) {
+      for (int j = 0; j < i; ++j) {
         if (ends[j] < i) continue;
         dp[i] = min(dp[i], dp[j] + 1);
       }
