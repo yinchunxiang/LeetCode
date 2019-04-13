@@ -11,6 +11,12 @@
  *          2.2 query[i] 是小写字母， dp[i][j] = dp[i - 1][j];
  */
 
+
+/**
+ *  1023. Camelcase Matching / 10. Regular Expression Matching / 44. Wildcard Matching
+ *  这3道题目可以放到一起做，都可以通过类似的dp方法解决
+ */
+
 class Solution {
 public:
   bool match(const std::string &query, const std::string &pattern) {
