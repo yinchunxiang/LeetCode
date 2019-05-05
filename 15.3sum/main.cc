@@ -12,8 +12,12 @@
  * @date 2017/03/12 20:30:15
  * @brief 
  * 
- **/ 
- 
+ **/
+
+#include <vector>
+
+using namespace std;
+
 class Solution {
     public:
         vector<vector<int>> threeSum(vector<int>& nums) {
