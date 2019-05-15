@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <tr1/unordered_map>
+#include <unordered_map>
 
 using namespace std;
 
 
-typedef std::tr1::unordered_map<int, bool> Map;
+typedef std::unordered_map<int, bool> Map;
 
 void print_map(Map& map){
     for (Map::iterator it = map.begin(); it != map.end(); ++it) {
@@ -32,12 +32,14 @@ int longestConsecutive(vector<int> &num) {
         // 先要把自己设置为true
         used[num[i]] = true;
         int length = 1;
-        
+
+        // look left
         for(int prev = num[i] - 1; used.find(prev) != used.end(); --prev) {
             used[prev] = true;
             ++length;
         }
 
+        // look right
         for (int next = num[i] + 1; used.find(next) != used.end(); ++next) {
             used[next] = true;
             ++length;
