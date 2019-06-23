@@ -16,3 +16,13 @@ void printvv(const std::vector<std::vector<T>>& vv) {
     }
     std::cout << "]" << std::endl;
 }
+
+
+template<typename T>
+void printv(const std::vector<T>& v) {
+  std::cout << "[";
+  for (const auto& x : v) {
+    std::cout << x << ", ";
+  }
+  std::cout <<"]" << std::endl;
+}
