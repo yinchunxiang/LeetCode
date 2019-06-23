@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.8)
 project(LeetCode)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+include_directories(.)
 
 set(SOURCE_FILES
         1.TwoSum/1.cc
@@ -336,9 +337,9 @@ set(SOURCE_FILES
 
 add_executable(0.demo 0.demo/main.cc 147.InsertionSortList/solution.cc)
 
-add_executable(329.solution ${SOURCE_FILES} 329.LongestIncreasingPathinaMatrix/2.cpp)
-add_executable(373.solution ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/solution.cpp)
-add_executable(373.main ${SOURCE_FILES} 373.FindKPairsWithSmallestSums/main.cpp)
+add_executable(329.solution 329.LongestIncreasingPathinaMatrix/2.cpp)
+add_executable(373.solution 373.FindKPairsWithSmallestSums/solution.cpp)
+add_executable(373.main 373.FindKPairsWithSmallestSums/main.cpp)
 add_executable(410.main.1 410.SplitArrayLargestSum/main.1.cc)
 add_executable(435.main.1 435.Non-overlappingIntervals/main.1.cc)
 add_executable(452.main.1 452.MinimumNumberOfArrowsToBurstBalloons/main.1.cc)
@@ -356,9 +357,9 @@ add_executable(679.main.2 679.24Game/main.2.cc )
 add_executable(689.main 689.MaximumSumOf3Non-OverlappingSubarrays/main.cpp)
 add_executable(689.main.1 689.MaximumSumOf3Non-OverlappingSubarrays/1.cc)
 
-add_executable(715.solution ${SOURCE_FILES} 715.RangeModule/main.cpp)
-add_executable(726.main ${SOURCE_FILES} 726.NumberOfAtoms/main.cpp)
-add_executable(726.1 ${SOURCE_FILES} 726.NumberOfAtoms/1.cpp 726.NumberOfAtoms/1.cpp)
+add_executable(715.solution 715.RangeModule/main.cpp)
+add_executable(726.main 726.NumberOfAtoms/main.cpp)
+add_executable(726.1 726.NumberOfAtoms/1.cpp 726.NumberOfAtoms/1.cpp)
 add_executable(726.main.2 726.NumberOfAtoms/2.cc)
 add_executable(726.main.3 726.NumberOfAtoms/3.cc)
 add_executable(726.main.4 726.NumberOfAtoms/4.cc)
@@ -391,4 +392,4 @@ add_executable(62.solution.dp 62.UniquePaths/dp.cc)
 add_executable(51.solution.dfs 51.NQueens/dfs.cc)
 
 add_executable(1023.CamelcaseMatching.main 1023.CamelcaseMatching/main.cc)
-
+add_executable(438.FindAllAnagramsInAString.main 438.FindAllAnagramsInAString/main.cc)

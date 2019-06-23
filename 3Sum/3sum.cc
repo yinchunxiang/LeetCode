@@ -23,6 +23,9 @@ vector<vector<int> > threeSum(vector<int> &num) {
     sort(num.begin(), num.end());
     vector<int> temp(3, 0);
     for (int i = 0; i < n - 2; ++i) {
+        if (nums[i] > 0) break;
+        // 跳过重复元素
+        if (i > 0 && nums[i] == nums[i - 1]) continue;
         int a = i; int b = i + 1; int c = n - 1;
         int sum = num[a] + num[b] + num[c];
         while (b < c) {
@@ -34,8 +37,9 @@ vector<vector<int> > threeSum(vector<int> &num) {
             }
             else {
                 temp[0] = num[a]; temp[1] = num[b]; temp[2] = num[c];
+                // 插入的时候做去重, 就不需要最后做去重了
                 if (result.empty() || temp != result.back()) {
-                result.push_back(temp);
+                  result.push_back(temp);
                 }
                 ++b; --c;
             }
