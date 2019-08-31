@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <unordered_set>
 
 template<typename T>
 void printvv(const std::vector<std::vector<T>>& vv) {
@@ -20,6 +21,15 @@ void printvv(const std::vector<std::vector<T>>& vv) {
 
 template<typename T>
 void printv(const std::vector<T>& v) {
+  std::cout << "[";
+  for (const auto& x : v) {
+    std::cout << x << ", ";
+  }
+  std::cout <<"]" << std::endl;
+}
+
+template<typename T>
+void prints(const std::unordered_set<T>& v) {
   std::cout << "[";
   for (const auto& x : v) {
     std::cout << x << ", ";

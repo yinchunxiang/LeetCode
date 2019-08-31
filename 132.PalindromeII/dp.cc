@@ -49,6 +49,34 @@ public:
 
     return GetMinCut(s, dp, memo, 0, n - 1);
   }
+
+  int minCut(string s) {
+    int n = s.size();
+    // dp[i] 代表 s[0, i] 需要的最少cut
+    vector<vector<bool>> palindrome(n, vector<bool>(n, false));
+    for (int j = 0; j < n; ++j) {
+      for (int i = 0; i <= j; ++i) {
+        if (s[i] == s[j] && (j - i < 2 || palindrome[i + 1][j - 1])) {
+          palindrome[i][j] = true;
+        }
+      }
+    }
+    vector<int> dp(n, n);
+    dp[0] = 0;
+    for (int j = 1; j < n; ++j) {
+      for (int i = 0; i <= j; ++i) {
+        // 判断 [i, j] 是否是回文, 如果不是回文直接不用算了
+        if (palindrome[i][j]) {
+          if (0 == i) {
+            dp[j] = 0;
+            break;
+          }
+          dp[j] = min(dp[j], dp[i] + 1);
+        }
+      }
+    }
+    return dp[n - 1];
+  }
 };
 
 int main(int argc, char* argv[]) {
