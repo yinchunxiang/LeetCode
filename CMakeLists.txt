@@ -393,3 +393,4 @@ add_executable(51.solution.dfs 51.NQueens/dfs.cc)
 
 add_executable(1023.CamelcaseMatching.main 1023.CamelcaseMatching/main.cc)
 add_executable(438.FindAllAnagramsInAString.main 438.FindAllAnagramsInAString/main.cc)
+add_executable(dbg_test util/dbg_test.cc)
