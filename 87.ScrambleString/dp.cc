@@ -9,6 +9,7 @@ public:
     if (N != s2.size()) return false;
     bool f[N + 1][N][N];
     fill_n(&f[0][0][0], (N + 1) * N * N, false);
+
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
             f[1][i][j] = s1[i] == s2[j];
