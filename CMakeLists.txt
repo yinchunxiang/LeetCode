@@ -326,7 +326,7 @@ set(SOURCE_FILES
         TrapWater/trap_water.cc
         Triangle/triangle.cc
         65.ValidNumber/valid_number.cc
-        WildcardMatch/wildcard.cc
+        44.WildcardMatch/wildcard.cc
         WordBreak/WordBreak.cc
         WordBreakII/WordBreakII.cc
         WordLadder/WordLadder.cc
