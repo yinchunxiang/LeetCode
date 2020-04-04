@@ -332,6 +332,7 @@ set(SOURCE_FILES
         WordLadder/WordLadder.cc
         WordLadderII/WordLadderII.cc
         79.WordSearch/word_search.cc
+        5347.MinimumCost/main.cc
         ZigZag/zz.cc)
 
 
