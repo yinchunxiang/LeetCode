@@ -391,6 +391,7 @@ add_executable(131.palindrome.dpdfs 131.Palindrome/dp+dfs.cc)
 add_executable(62.solution 62.UniquePaths/solution.cc)
 add_executable(62.solution.dp 62.UniquePaths/dp.cc)
 add_executable(51.solution.dfs 51.NQueens/dfs.cc)
+add_executable(1519 WeeklyContest198/1519.cc)
 
 add_executable(1023.CamelcaseMatching.main 1023.CamelcaseMatching/main.cc)
 add_executable(438.FindAllAnagramsInAString.main 438.FindAllAnagramsInAString/main.cc)

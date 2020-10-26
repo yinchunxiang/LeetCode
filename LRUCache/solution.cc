@@ -44,12 +44,13 @@ public:
       }
       list_.emplace_front(key, value);
       map_[key] = list_.begin();
-
     }
 
  private:
   int capacity_;
+  // key => list::iterator
   std::unordered_map<int, std::list<pair<int,int>>::iterator> map_;
+  // KeyValueList
   std::list<pair<int, int>> list_;
 
 };
